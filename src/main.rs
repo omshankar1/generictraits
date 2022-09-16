@@ -1,6 +1,7 @@
 #![allow(dead_code, unused_imports, unused_variables)]
 mod const_generics;
 mod duration;
+mod int_wrapper;
 mod square;
 mod vec_wrapper;
 use const_generics::IsOrdered;
@@ -14,12 +15,14 @@ use std::{fmt::Debug, net::Ipv4Addr};
 fn main() {
     // ********************************************************
     duration_trait();
-    vec_wrapper();
     square::exec_square();
-    const_generics::ordered_array();
+    int_wrapper(); // Deref trait
+                   // vec_wrapper();
+                   // const_generics::ordered_array();
 }
 
 fn duration_trait() {
+    // Generic Traits - 'From'
     let days = duration::Days::new(10); // foreign type
 
     let duration1: duration::Duration = duration::Duration::from(days); // explicit conversion
@@ -30,9 +33,6 @@ fn duration_trait() {
     let duration2: duration::Duration = duration::Duration::from(secs); // explicit conversion
     let duration2a: duration::Duration = secs.into(); // implicit conversion
 
-    // println!("{:?}", duration1);
-    // println!("{:?}", duration1a);
-    // println!("{:?}", duration2);
     // println!("{:?}", duration2a);
 
     // Flexibility
@@ -41,6 +41,14 @@ fn duration_trait() {
     duration::print_duration(std::time::Duration::from_secs(864000).into());
 }
 
+// Int wrapper - Deref trait
+fn int_wrapper() {
+    let int_wrapper = int_wrapper::Wrapper::new(5);
+    let val = &*int_wrapper;
+    println!("Int Wrapper: {:?}", val);
+}
+
+// Vec Wrapper - From and Deref trait
 fn vec_wrapper() {
     let vec_wrapper = vec_wrapper::Wrapper::new(vec![1, 3, 5]);
     let vec: Vec<u8> = Vec::<u8>::from(vec_wrapper);
