@@ -1,9 +1,11 @@
 // Generic trait:
-// Multiple implementation of the same trait for the same type
+// Definition: Multiple implementations of the same trait for the same type
 // with different Generic parameters
 
-// Self: Type U(can be arbitrary)
-// Type T is the Generic parameter (can be arbitrary)
+// Implementation: on 'Self' (Type U)
+// Trait: 'From' (Defined in std lib)
+// Generic Parameter: Type 'T'
+
 // pub trait From<T>: Sized {
 //     fn from(_: T) -> Self;
 // }
@@ -12,7 +14,9 @@
 // foreign types
 // FROM (foreign type)
 // ********************************************************
-#[derive(Clone, Copy)]
+
+// ********   Days         ********************************
+#[derive(Debug, Clone, Copy)]
 pub struct Days(u16);
 impl Days {
     pub fn new(day: u16) -> Self {
@@ -20,17 +24,17 @@ impl Days {
     }
 }
 
-#[derive(Clone, Copy)]
+// ********   Seconds         ****************************
+#[derive(Debug, Clone, Copy)]
 pub struct Seconds(u64);
 impl Seconds {
     pub fn new(sec: u64) -> Self {
         Self(sec)
     }
 }
-// std::time::duration
 
 // ********************************************************
-// TO Our type
+// TO (Our type: Duration)
 // ********************************************************
 #[derive(Debug)]
 pub struct Duration {

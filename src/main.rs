@@ -21,10 +21,12 @@ fn main() {
 
 fn duration_trait() {
     let days = duration::Days::new(10); // foreign type
+
     let duration1: duration::Duration = duration::Duration::from(days); // explicit conversion
     let duration1a: duration::Duration = days.into(); // implicit conversion
 
     let secs = duration::Seconds::new(86400); // foreign type
+
     let duration2: duration::Duration = duration::Duration::from(secs); // explicit conversion
     let duration2a: duration::Duration = secs.into(); // implicit conversion
 
