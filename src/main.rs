@@ -14,11 +14,17 @@ use std::{fmt::Debug, net::Ipv4Addr};
 
 fn main() {
     // ********************************************************
+    // From trait
     duration_trait();
+
+    // Trait defined on primitive types without wrapping
     square::exec_square();
-    int_wrapper(); // Deref trait
-                   // vec_wrapper();
-                   // const_generics::ordered_array();
+
+    // Deref trait
+    int_wrapper();
+
+    // vec_wrapper();
+    // const_generics::ordered_array();
 }
 
 fn duration_trait() {
