@@ -29,15 +29,21 @@ fn main() {
 
 fn duration_trait() {
     // Generic Traits - 'From'
+    // Create an instance of foreign type Days
     let days = duration::Days::new(10); // foreign type
 
-    let duration1: duration::Duration = duration::Duration::from(days); // explicit conversion
-    let duration1a: duration::Duration = days.into(); // implicit conversion
+    // Explicit conversion from foreign(Days) to Internal(Duration)
+    let duration1: duration::Duration = duration::Duration::from(days);
+    // More succinct implicit conversion
+    let duration1a: duration::Duration = days.into();
 
+    // Create an instance of foreign type Seconds
     let secs = duration::Seconds::new(86400); // foreign type
 
-    let duration2: duration::Duration = duration::Duration::from(secs); // explicit conversion
-    let duration2a: duration::Duration = secs.into(); // implicit conversion
+    // Explicit conversion from foreign(Seconds) to Internal(Duration)
+    let duration2: duration::Duration = duration::Duration::from(secs);
+    // More succinct implicit conversion
+    let duration2a: duration::Duration = secs.into();
 
     // println!("{:?}", duration2a);
 
