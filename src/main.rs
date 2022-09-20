@@ -1,5 +1,6 @@
 #![allow(dead_code, unused_imports, unused_variables)]
 mod const_generics;
+mod distance;
 mod duration;
 mod int_wrapper;
 mod point;
@@ -18,9 +19,11 @@ fn main() {
     // From trait
     duration_trait();
 
-    // Trait defined on primitive types without wrapping
+    // Trait defined on primitive eg: 2.square()
     square::exec_square();
 
+    // Trait : From and Add
+    add_distance();
     // Deref trait
     int_wrapper();
 
@@ -67,6 +70,17 @@ fn add_points() {
     let p2 = point::Point { x: 2, y: 2 };
     let p3 = p1 + p2;
     println!("Adding p1+p2: {:?}", p3);
+}
+
+fn add_distance() {
+    let meters = distance::Meter(100.0);
+    let mm = distance::Millimeter(100000.0);
+    let result: distance::Meter = meters + mm;
+    println!("Meter-> meters+mm: {:?}", result);
+    let result: distance::Millimeter = (meters + mm).into();
+    println!("Millimeter-> meters+mm: {:?}", result);
+    let result: distance::Millimeter = mm + meters;
+    println!("Millimeter-> mm+meters: {:?}", result);
 }
 
 // Vec Wrapper - From and Deref trait
