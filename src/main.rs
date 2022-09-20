@@ -2,6 +2,7 @@
 mod const_generics;
 mod duration;
 mod int_wrapper;
+mod point;
 mod square;
 mod vec_wrapper;
 use const_generics::IsOrdered;
@@ -23,6 +24,7 @@ fn main() {
     // Deref trait
     int_wrapper();
 
+    // add_points();
     // vec_wrapper();
     // const_generics::ordered_array();
 }
@@ -58,6 +60,13 @@ fn int_wrapper() {
     let int_wrapper = int_wrapper::Wrapper::new(5);
     let val = &*int_wrapper;
     println!("Int Wrapper: {:?}", val);
+}
+
+fn add_points() {
+    let p1 = point::Point { x: 1, y: 1 };
+    let p2 = point::Point { x: 2, y: 2 };
+    let p3 = p1 + p2;
+    println!("Adding p1+p2: {:?}", p3);
 }
 
 // Vec Wrapper - From and Deref trait
