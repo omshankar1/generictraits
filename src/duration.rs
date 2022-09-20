@@ -1,18 +1,11 @@
-// Generic trait:
-// Definition: Multiple implementations of the same trait for the same type
-// with different Generic parameters
-
-// Implementation: on 'Self' (Type U)
-// Trait: 'From' (Defined in std lib)
-// Generic Parameter: Type 'T'
-
 // pub trait From<T>: Sized {
 //     fn from(_: T) -> Self;
 // }
 
 // ********************************************************
-// foreign types
-// FROM (foreign type)
+// foreign types: Days, Seconds
+// internal type: Duration
+// FROM (foreign type) to (local type)
 // ********************************************************
 
 // ********   Days         ********************************
@@ -67,3 +60,11 @@ impl From<std::time::Duration> for Duration {
 pub fn print_duration(duration: Duration) {
     println!("Number of days: {}", duration.days);
 }
+
+// Generic trait:
+// Definition: Multiple implementations of the same trait for the same type
+// with different Generic parameters
+
+// Implementation: on 'Self' (Type U)
+// Trait: 'From' (Defined in std lib)
+// Generic Parameter: Type 'T'

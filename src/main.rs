@@ -23,9 +23,10 @@ fn main() {
     square::exec_square();
 
     // Trait : From and Add
-    // add_distance();
+    add_distance();
+
     // Deref trait
-    // int_wrapper();
+    int_wrapper();
 
     // add_points();
     // vec_wrapper();
@@ -34,7 +35,7 @@ fn main() {
 
 fn duration_trait() {
     // Generic Traits - 'From'
-    // Create an instance of foreign type Days
+    // Foreign Type: Create an instance Days type
     let days = duration::Days::new(10); // foreign type
 
     // Explicit conversion from foreign(Days) to Internal(Duration)
@@ -42,7 +43,8 @@ fn duration_trait() {
     // More succinct implicit conversion
     let duration1a: duration::Duration = days.into();
 
-    // Create an instance of foreign type Seconds
+    // Foreign Type: Create an instance Seconds type
+    let days = duration::Days::new(10); // foreign type
     let secs = duration::Seconds::new(86400); // foreign type
 
     // Explicit conversion from foreign(Seconds) to Internal(Duration)
@@ -57,6 +59,16 @@ fn duration_trait() {
     duration::print_duration(duration::Seconds::new(864000).into());
     duration::print_duration(std::time::Duration::from_secs(864000).into());
 }
+fn add_distance() {
+    let meters = distance::Meter(100.0);
+    let mm = distance::Millimeter(100000.0);
+    let result: distance::Meter = meters + mm;
+    println!("Meter-> meters+mm: {:?}", result);
+    let result: distance::Millimeter = (meters + mm).into();
+    println!("Millimeter-> meters+mm: {:?}", result);
+    let result: distance::Millimeter = mm + meters;
+    println!("Millimeter-> mm+meters: {:?}", result);
+}
 
 // Int wrapper - Deref trait
 fn int_wrapper() {
@@ -70,17 +82,6 @@ fn add_points() {
     let p2 = point::Point { x: 2, y: 2 };
     let p3 = p1 + p2;
     println!("Adding p1+p2: {:?}", p3);
-}
-
-fn add_distance() {
-    let meters = distance::Meter(100.0);
-    let mm = distance::Millimeter(100000.0);
-    let result: distance::Meter = meters + mm;
-    println!("Meter-> meters+mm: {:?}", result);
-    let result: distance::Millimeter = (meters + mm).into();
-    println!("Millimeter-> meters+mm: {:?}", result);
-    let result: distance::Millimeter = mm + meters;
-    println!("Millimeter-> mm+meters: {:?}", result);
 }
 
 // Vec Wrapper - From and Deref trait
