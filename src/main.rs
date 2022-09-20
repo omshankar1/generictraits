@@ -23,9 +23,9 @@ fn main() {
     square::exec_square();
 
     // Trait : From and Add
-    add_distance();
+    // add_distance();
     // Deref trait
-    int_wrapper();
+    // int_wrapper();
 
     // add_points();
     // vec_wrapper();
