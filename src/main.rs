@@ -44,7 +44,6 @@ fn duration_trait() {
     let duration1a: duration::Duration = days.into();
 
     // Foreign Type: Create an instance Seconds type
-    let days = duration::Days::new(10); // foreign type
     let secs = duration::Seconds::new(86400); // foreign type
 
     // Explicit conversion from foreign(Seconds) to Internal(Duration)
