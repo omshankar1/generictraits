@@ -5,7 +5,8 @@
 // ********************************************************
 // foreign types: Days, Seconds
 // internal type: Duration
-// FROM (foreign type) to (local type)
+// Problem: Convert from Days/Seconds to Duration
+// Solution: using trait FROM (foreign type) to (local type)
 // ********************************************************
 
 // ********   Days         ********************************

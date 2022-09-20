@@ -58,6 +58,7 @@ fn duration_trait() {
     duration::print_duration(duration::Days::new(10).into());
     duration::print_duration(duration::Seconds::new(864000).into());
     duration::print_duration(std::time::Duration::from_secs(864000).into());
+    println!();
 }
 fn add_distance() {
     let meters = distance::Meter(100.0);

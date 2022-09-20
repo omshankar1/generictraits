@@ -19,6 +19,7 @@ impl Square for f32 {
 }
 
 pub fn exec_square() {
-    println!("{:?}", (10.1).sqr());
-    println!("{:?}", 10.sqr());
+    println!("Square of 10.1: {:?}", (10.1).sqr());
+    println!("Square of 10: {:?}", 10.sqr());
+    println!();
 }
